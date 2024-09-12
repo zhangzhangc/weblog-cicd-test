@@ -29,6 +29,7 @@
     "v-viewer": "^3.0.11",
     "viewerjs": "^1.11.6",
     "vue": "^3.4.21",
+    "vue-draggable-plus": "^0.5.3",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {

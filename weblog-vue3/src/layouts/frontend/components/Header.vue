@@ -76,7 +76,7 @@
                     </button>
 
                     <!-- 登录 -->
-                    <div class="text-gray-900 ml-1 mr-1 hover:text-blue-700 dark:text-white" v-if="!isLogined"
+                    <div class="text-gray-900 ml-1 mr-1 hover:text-sky-600 dark:text-white" v-if="!isLogined"
                          @click="$router.push('/login')">登录</div>
                     <!-- 已经登录，展示用户头像 -->
                     <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" v-else
@@ -170,6 +170,11 @@
                             <a @click="router.push('/archive/list')"
                                :class="[currPath == '/archive/list' ? 'text-sky-600 md:border-b-2 md:border-sky-600 dark:text-sky-500 dark:md:border-sky-600' : 'text-gray-900 dark:text-white']"
                                class="block py-2 pl-3 pr-4 rounded md:rounded-none hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-600 md:p-0 md:dark:hover:text-sky-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">归档</a>
+                        </li>
+                        <li>
+                            <a @click="router.push('/wiki/list')"
+                               :class="[currPath == '/wiki/list' ? 'text-sky-600 md:border-b-2 md:border-sky-600 dark:text-sky-500 dark:md:border-sky-600' : 'text-gray-900 dark:text-white']"
+                               class="block py-2 pl-3 pr-4 rounded md:rounded-none hover:bg-gray-100 md:hover:bg-transparent md:hover:text-sky-600 md:p-0 md:dark:hover:text-sky-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">知识库</a>
                         </li>
                     </ul>
                 </div>

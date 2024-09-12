@@ -29,3 +29,4 @@ export function updateArticle(data) {
 export function updateArticleIsTop(data) {
     return axios.post("/admin/article/isTop/update", data)
 }
+

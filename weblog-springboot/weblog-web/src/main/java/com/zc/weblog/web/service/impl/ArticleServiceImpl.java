@@ -65,7 +65,7 @@ public class ArticleServiceImpl implements ArticleService {
         Long size = findIndexArticlePageListReqVO.getSize();
 
         // 第一步：分页查询文章主体记录
-        Page<ArticleDO> articleDOPage = articleMapper.selectPageList(current, size, null, null, null);
+        Page<ArticleDO> articleDOPage = articleMapper.selectPageList(current, size, null, null, null,null);
 
         // 返回的分页数据
         List<ArticleDO> articleDOS = articleDOPage.getRecords();
@@ -74,7 +74,11 @@ public class ArticleServiceImpl implements ArticleService {
         if (!CollectionUtils.isEmpty(articleDOS)) {
             // 文章 DO 转 VO
             vos = articleDOS.stream()
-                    .map(articleDO -> ArticleConvert.INSTANCE.convertDO2VO(articleDO))
+                    .map(articleDO -> {
+                        FindIndexArticlePageListRspVO vo = ArticleConvert.INSTANCE.convertDO2VO(articleDO);
+                        vo.setIsTop(articleDO.getWeight() > 0); // 是否置顶
+                        return vo;
+                    })
                     .collect(Collectors.toList());
 
             // 拿到所有文章的 ID 集合

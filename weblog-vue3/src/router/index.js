@@ -14,6 +14,12 @@ import TagList from "@/pages/frontend/tag-list.vue";
 import TagArticleList from "@/pages/frontend/tag-article-list.vue";
 import ArticleDetail from "@/pages/frontend/article-detail.vue";
 import NotFound from '@/pages/frontend/404.vue'
+
+import AdminWikiList from '@/pages/admin/wiki-list.vue'
+import WikiList from "@/pages/frontend/wiki-list.vue";
+import WikiDetail from "@/pages/frontend/wiki-detail.vue";
+
+import AdminCommentList from '@/pages/admin/comment-list.vue'
 // 统一在这里声明所有路由
 const routes = [
     {
@@ -80,6 +86,21 @@ const routes = [
             title: '404 页'
         }
     },
+
+    {
+        path: '/wiki/list', // 知识库
+        component: WikiList,
+        meta: {
+            title: '知识库'
+        }
+    },
+    {
+        path: '/wiki/:wikiId', // 知识库详情页
+        component: WikiDetail,
+        meta: {
+            title: '知识库详情'
+        }
+    },
     {
         path: "/admin", // 后台首页
         component: Admin, // 对应 admin.vue 布局文件
@@ -118,6 +139,22 @@ const routes = [
                 component: AdminBlogSetting,
                 meta: {
                     title: '博客设置'
+                }
+            },
+
+            {
+                path: "/admin/wiki/list",
+                component: AdminWikiList,
+                meta: {
+                    title: '知识库管理'
+                }
+            },
+
+            {
+                path: "/admin/comment/list",
+                component: AdminCommentList,
+                meta: {
+                    title: '评论管理'
                 }
             },
         ]
